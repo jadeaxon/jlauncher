@@ -1,0 +1,31 @@
+Do as a practice project doing all Volere reqs, UML, etc.
+
+Part of Mastler.ahk normal mode.  All code kept in JLauncher.ahk.
+
+AHK: Ability to *quickly* start a countdown timer to timebox some activity.
+	Might be part of JLauncher: <Win j>r 15 stop reading
+		[A command might be parsed for embedded args r(\d+).]
+		A command may then have additional space-separated args
+		Maybe it just uses Slack for these reminders.  Maybe Slack API instead of automating GUI?
+
+<W j> -- opens launcher; just a small text box
+you type a 1-3 letter launch code and hit enter
+mapping stored in ~/jlauncher.conf determines what happens
+	[if ~/jlauncher_<host>.conf exists, these merge/override defs in main config] 
+	<launch code> => <action>
+	<action> is a Windows command or an AHK niladic (?) function in JLauncher.
+	<action> can also be a file (which should have its default Windows action run on it).
+		Using AHK "Run <path>" will do this.	
+	Leading @ means use AHK function.
+	# starts a comment.
+	Space must surround the =>.
+	ff => C:\Program Files\Mozilla Firefox\firefox.exe
+	bcp => @BedtimeColorProfile
+	bed => @BedtimeColorProfile
+	ncp => @NormalColorProfile
+	Jr => @ReloadConfig
+	Je => jlauncher.conf
+		Relative paths are relative to user home dir.  You can use / as path separator.
+
+Q. How do we populate a hash from a file in AHK?
+
